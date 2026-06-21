@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Velvet Whisk | Gourmet Bakery & Ice Creamery</title>
+  <meta name="description" content="Experience premium dessert luxury at The Velvet Whisk. Savor our signature fudge brownies, elegant red velvet cupcakes, and rich artisanal ice creams. Fast delivery & local pickup in Lahore.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- Header / Navigation -->
+  <header id="main-header" class="header-glass">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <span class="logo-accent">The</span> Velvet Whisk
+      </a>
+      
+      <nav id="navbar" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#menu-section" class="nav-link">Menu</a>
+        <a href="#reviews-section" class="nav-link">Reviews</a>
+        <a href="#admin-section" class="nav-link" id="nav-admin">Admin Dashboard</a>
+      </nav>
+      
+      <div class="header-actions">
+        <button id="cart-btn" class="cart-trigger" aria-label="Open Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count">0</span>
+        </button>
+        <button id="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Crafting Moments of <br><span class="highlight">Velvety Indulgence</span></h1>
+      <p class="hero-subtitle">Lahore's premier bakery and ice creamery, handcrafting artisanal brownies, gourmet cupcakes, and ultra-creamy ice cream with organic ingredients.</p>
+      <div class="hero-actions-container">
+        <a href="#menu-section" class="btn btn-primary">Explore Our Menu</a>
+        <a href="#reviews-section" class="btn btn-outline">Read Customer Stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container (SPA switching) -->
+  <main>
+    
+    <!-- Store View Section (Home & Shop) -->
+    <div id="store-view">
+      
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="section-container">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <h3>Premium Ingredients</h3>
+            <p>We source the finest Belgian cocoa, Madagascar vanilla beans, and organic dairy for pure flavor.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Baked Fresh Daily</h3>
+            <p>Our pastry chefs whip up batches fresh every morning to ensure soft, melt-in-your-mouth textures.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3>Express Delivery</h3>
+            <p>Guaranteed fresh-to-door delivery in insulated containers so your ice cream stays perfectly frosty.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="menu-section" class="menu-section">
+        <div class="section-header">
+          <span class="section-tagline">Satisfy Your Cravings</span>
+          <h2 class="section-title">The Sweet Collections</h2>
+          <div class="decorator-line"></div>
+        </div>
+        
+        <!-- Category Filters -->
+        <div class="menu-filters" role="tablist">
+          <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All Delights</button>
+          <button class="filter-btn" data-category="brownies" role="tab" aria-selected="false">Gooey Brownies</button>
+          <button class="filter-btn" data-category="cupcakes" role="tab" aria-selected="false">Velvet Cupcakes</button>
+          <button class="filter-btn" data-category="icecream" role="tab" aria-selected="false">Artisanal Ice Creams</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menu-grid">
+          <!-- Dynamically populated via JS -->
+          <div class="spinner-container">
+            <div class="loading-spinner"></div>
+            <p>Preparing our secret recipes...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews & Feedback Section -->
+      <section id="reviews-section" class="reviews-section">
+        <div class="section-header">
+          <span class="section-tagline">Words of Love</span>
+          <h2 class="section-title">Customer Chronicles</h2>
+          <div class="decorator-line"></div>
+        </div>
+        
+        <div class="reviews-container">
+          <!-- Submission Form -->
+          <div class="review-form-container">
+            <h3>Share Your Experience</h3>
+            <p>We read every review. Tell us how we made your day sweeter.</p>
+            <form id="review-form" class="sweet-form">
+              <div class="form-group">
+                <label for="review-name">Full Name</label>
+                <input type="text" id="review-name" required placeholder="e.g. Zainab Ahmed">
+              </div>
+              <div class="form-group">
+                <label>Your Rating</label>
+                <div class="rating-input" role="radiogroup" aria-label="Select star rating">
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 star"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 stars"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 stars"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 stars"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" class="star-btn" data-value="5" aria-label="5 stars"><i class="fa-solid fa-star"></i></button>
+                  <input type="hidden" id="review-rating" name="rating" value="5" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="review-comment">Review Details</label>
+                <textarea id="review-comment" required rows="4" placeholder="How did it taste? Mention the texture, flavor, and delivery..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Submit Sweet Review</button>
+            </form>
+          </div>
+
+          <!-- Reviews List / Slider -->
+          <div class="reviews-list-container">
+            <h3>Recent Tastings</h3>
+            <div id="reviews-list" class="reviews-list">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </div> <!-- End Store View -->
+
+    <!-- Admin View Section -->
+    <div id="admin-view" class="admin-view hidden">
+      <section class="admin-section">
+        <div class="admin-header-row">
+          <div>
+            <span class="section-tagline">Management Suite</span>
+            <h2 class="admin-title">Orders Dashboard</h2>
+          </div>
+          <button id="close-admin-btn" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to Store</button>
+        </div>
+
+        <!-- Admin Stats Panel -->
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <div class="stat-details">
+              <span class="stat-label">Total Orders</span>
+              <span class="stat-number" id="stat-total-orders">0</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+            <div class="stat-details">
+              <span class="stat-label">Total Revenue</span>
+              <span class="stat-number" id="stat-total-revenue">Rs. 0</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="stat-details">
+              <span class="stat-label">Avg Rating</span>
+              <span class="stat-number" id="stat-avg-rating">0.0 / 5</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-truck"></i></div>
+            <div class="stat-details">
+              <span class="stat-label">Delivery Ratio</span>
+              <span class="stat-number" id="stat-delivery-ratio">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Table Container -->
+        <div class="admin-table-container">
+          <div class="table-header">
+            <h3>Recent Customer Orders</h3>
+            <button id="refresh-orders-btn" class="btn btn-sm btn-outline"><i class="fa-solid fa-rotate"></i> Refresh</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer Info</th>
+                  <th>Delivery Address</th>
+                  <th>Ordered Items</th>
+                  <th>Type</th>
+                  <th>Total Price</th>
+                  <th>Status</th>
+                  <th>Order Time</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-rows">
+                <!-- Dynamically populated via JS -->
+                <tr>
+                  <td colspan="8" class="text-center">Loading orders database...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div> <!-- End Admin View -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-accent">The</span> Velvet Whisk</a>
+        <p>Your portal to premium sweet cravings. Serving luxury desserts baked daily with care and passion.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Our Menu</h4>
+        <ul>
+          <li><a href="#menu-section">Signature Brownies</a></li>
+          <li><a href="#menu-section">Red Velvet Cupcakes</a></li>
+          <li><a href="#menu-section">Madagascar Vanilla Ice Cream</a></li>
+          <li><a href="#menu-section">Belgian Cocoa Specialties</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4>Store Locations</h4>
+        <p><i class="fa-solid fa-location-dot"></i> Mall Road Plaza, Sector G, Lahore</p>
+        <p><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
+        <p><i class="fa-solid fa-envelope"></i> orders@thevelvetwhisk.com</p>
+        <p class="copyright">&copy; 2026 The Velvet Whisk. Built with love in Pakistan.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- MODALS & DIALOGS --- -->
+
+  <!-- 1. Customer Profile Setup Dialog (Triggered before Checkout) -->
+  <dialog id="profile-dialog" class="sweet-dialog">
+    <div class="dialog-header">
+      <h2>Create Customer Profile</h2>
+      <button class="dialog-close" data-close="profile-dialog" aria-label="Close Profile Form">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-intro">Please set up your profile details. This will be securely saved on your device for future orders.</p>
+      <form id="profile-form" class="sweet-form">
+        <div class="form-group">
+          <label for="profile-name">Full Name *</label>
+          <input type="text" id="profile-name" required placeholder="e.g. Muhammad Ali">
+        </div>
+        <div class="form-group">
+          <label for="profile-phone">Phone Number *</label>
+          <input type="tel" id="profile-phone" required placeholder="e.g. 03001234567">
+        </div>
+        <div class="form-group">
+          <label for="profile-email">Email Address *</label>
+          <input type="email" id="profile-email" required placeholder="e.g. ali@example.com">
+        </div>
+        <div class="form-group">
+          <label for="profile-address">Delivery Address *</label>
+          <textarea id="profile-address" required rows="3" placeholder="Apartment / House #, Street #, Block, Area, Lahore"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Save Profile & Continue</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 2. Cart Side Drawer / Dialog -->
+  <dialog id="cart-dialog" class="cart-drawer">
+    <div class="drawer-header">
+      <h2>Your Basket</h2>
+      <button class="drawer-close" data-close="cart-dialog" aria-label="Close Shopping Basket">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <!-- Active Profile Bar -->
+      <div id="active-profile-summary" class="profile-summary-box hidden">
+        <div>
+          <span class="summary-label">Ordering as:</span>
+          <strong id="summary-profile-name">Name</strong>
+          <span id="summary-profile-phone" class="summary-sub">0300-0000000</span>
+        </div>
+        <button id="edit-profile-btn" class="btn-text-link">Edit Profile</button>
+      </div>
+
+      <div id="cart-empty-message" class="cart-empty">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <p>Your basket is currently empty.</p>
+        <a href="#menu-section" class="btn btn-outline btn-sm" onclick="document.getElementById('cart-dialog').close()">Explore Menu</a>
+      </div>
+
+      <div id="cart-content-wrapper" class="hidden">
+        <!-- Cart Items List -->
+        <div id="cart-items-list" class="cart-items-list">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Order Preferences -->
+        <div class="order-preferences">
+          <h3>Delivery Preference</h3>
+          <div class="toggle-group">
+            <input type="radio" id="pref-delivery" name="order-type-pref" value="Delivery" checked>
+            <label for="pref-delivery">
+              <i class="fa-solid fa-truck"></i> Home Delivery
+            </label>
+            
+            <input type="radio" id="pref-pickup" name="order-type-pref" value="Self Pickup">
+            <label for="pref-pickup">
+              <i class="fa-solid fa-store"></i> Self Pickup
+            </label>
+          </div>
+          
+          <div id="delivery-address-confirmation" class="address-confirmation-box">
+            <span class="summary-label">Delivery Address:</span>
+            <p id="summary-delivery-address">No address saved.</p>
+          </div>
+        </div>
+
+        <!-- Summary & Checkout -->
+        <div class="cart-summary-footer">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">Rs. 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <span id="cart-delivery-fee">Rs. 150</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Grand Total</span>
+            <span id="cart-grand-total">Rs. 0</span>
+          </div>
+          
+          <button id="checkout-btn" class="btn btn-primary btn-full btn-large">
+            Place Order <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. Order Success Dialog -->
+  <dialog id="success-dialog" class="success-modal">
+    <div class="success-body">
+      <div class="success-checkmark">
+        <div class="checkmark-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+      <h2>Order Placed Successfully!</h2>
+      <p class="success-order-id">Order Reference: <strong id="success-ref-id">#00000</strong></p>
+      
+      <div class="success-details-box">
+        <p id="success-type-message">Your order will reach your saved address shortly.</p>
+        <p class="email-notice"><i class="fa-solid fa-envelope"></i> An order confirmation email has been dispatched to: <span id="success-email">user@example.com</span></p>
+        <p id="ethereal-email-link-wrapper" class="hidden"><a id="ethereal-email-link" href="#" target="_blank" class="btn-text-link">Click here to preview the test email <i class="fa-solid fa-up-right-from-square"></i></a></p>
+      </div>
+
+      <button class="btn btn-primary btn-full" onclick="document.getElementById('success-dialog').close()">Awesome, Thank You!</button>
+    </div>
+  </dialog>
+
+  <!-- 4. Item Detail Dialog -->
+  <dialog id="detail-dialog" class="sweet-dialog detail-dialog">
+    <div class="dialog-header">
+      <h2 id="detail-item-name">Item Name</h2>
+      <button class="dialog-close" data-close="detail-dialog" aria-label="Close details">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <div class="detail-grid">
+        <div class="detail-img-container">
+          <img id="detail-item-image" src="" alt="Gourmet Dessert">
+        </div>
+        <div class="detail-info-container">
+          <span id="detail-item-flavor" class="product-flavor">Flavor</span>
+          <p id="detail-item-desc" class="detail-desc">Full description...</p>
+          
+          <div class="detail-price-row">
+            <span>Price:</span>
+            <strong id="detail-item-price" class="product-price">Rs. 0</strong>
+          </div>
+          
+          <div class="detail-order-box">
+            <div class="form-group">
+              <label>Select Quantity</label>
+              <div class="quantity-control detail-qty-control">
+                <button type="button" class="qty-btn" id="detail-qty-minus" aria-label="Decrease quantity"><i class="fa-solid fa-minus"></i></button>
+                <input type="text" id="detail-qty-input" value="1" readonly aria-label="Selected quantity">
+                <button type="button" class="qty-btn" id="detail-qty-plus" aria-label="Increase quantity"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            
+            <button type="button" id="detail-confirm-btn" class="btn btn-primary btn-full btn-large">Confirm Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
