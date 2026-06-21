@@ -126,7 +126,7 @@ app.post('/api/orders', async (req, res) => {
         
         <p style="font-size: 14px; color: #6d5b4e; text-align: center; margin-top: 30px;">
           If you have any questions, call us at +92 300 1234567. Enjoy your sweet treats!<br>
-          <strong>The Velvet Whisk, Mall Road, Lahore</strong>
+          <strong>The Velvet Whisk, Mall Road, Islamabad</strong>
         </p>
       </div>
     `;
