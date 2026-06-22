@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 require('./instrument');
+=======
+>>>>>>> a494050d3cd8cae4c85988d9f54b6b79f83e8d30
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -127,7 +130,11 @@ app.post('/api/orders', async (req, res) => {
         
         <p style="font-size: 14px; color: #6d5b4e; text-align: center; margin-top: 30px;">
           If you have any questions, call us at +92 300 1234567. Enjoy your sweet treats!<br>
+<<<<<<< HEAD
           <strong>The Velvet Whisk, Mall Road, Lahore</strong>
+=======
+          <strong>The Velvet Whisk, Mall Road, Islamabad</strong>
+>>>>>>> a494050d3cd8cae4c85988d9f54b6b79f83e8d30
         </p>
       </div>
     `;
